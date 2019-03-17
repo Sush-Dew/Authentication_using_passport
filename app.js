@@ -54,7 +54,12 @@ app.post("/register",function(req,res){
 });
 //login routes
 app.get("/login",function(req,res){
-    res.render("login");
+    if(req.isAuthenticated()){
+        res.render("secret")
+    }
+    else{
+        res.render("login");
+    }
 });
 
 //login logic
